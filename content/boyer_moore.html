@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/&#34;&gt;NSI&lt;/a&gt;</title>
+    <title>Algorithme de Boyer et Moore &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/&#34;&gt;NSI&lt;/a&gt;</title>
   
   
   
@@ -46,6 +46,8 @@
     <script src="../_static/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="Recherche textuelle" href="exercice_2.html" />
+    <link rel="prev" title="Exercices" href="exercice_1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -107,8 +109,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -148,10 +148,12 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="activite_grille.html">Parcourir une grille</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programmation_dynamique.html">La programmation dynamique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercice_1.html">Exercices</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Algorithme de Boyer et Moore</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exercice_2.html">Recherche textuelle</a></li>
 </ul>
 
     </div>
@@ -290,7 +292,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Algorithme de Boyer et Moore</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -299,9 +301,9 @@ document.write(`
                 <h2> Contenu </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recherche-naive">Recherche naïve</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -312,7 +314,36 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section id="algorithme-de-boyer-et-moore">
+<h1>Algorithme de Boyer et Moore<a class="headerlink" href="#algorithme-de-boyer-et-moore" title="Lien vers cette rubrique">#</a></h1>
+<p>La recherche textuelle consiste à trouver la présence d’une chaine de caractères appelée <strong>motif</strong> dans un texte. Il existe différents algorithmes qui résolvent ce problème.</p>
+<p>Le langage Python propose la méthode <code class="docutils literal notranslate"><span class="pre">find</span></code> qui s’applique sur les chaines de caractères. Si on crée une variable <code class="docutils literal notranslate"><span class="pre">texte</span></code> de type <code class="docutils literal notranslate"><span class="pre">str</span></code>, on peut lui appliquer la méthode <code class="docutils literal notranslate"><span class="pre">find</span></code> qui prend en paramètre une chaine de caractères et qui renvoie l’indice du premier caractère dans le texte qui correspond au motif.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">texte</span> <span class="o">=</span> <span class="s1">&#39;La moto de Tom&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">texte</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;mot&#39;</span><span class="p">)</span>
+<span class="go">3</span>
+</pre></div>
+</div>
+<section id="recherche-naive">
+<h2>Recherche naïve<a class="headerlink" href="#recherche-naive" title="Lien vers cette rubrique">#</a></h2>
+<p>L’algorithme naïf consiste à comparer un à un, de gauche à droite, les caractères du texte avec ceux du motif. Deux cas sont à envisager:</p>
+<ul class="simple">
+<li><p>Le caractère du texte et le caractère du motif correspondent, on passe au caractère suivant du motif et on le compare au caractère suivant du texte.</p></li>
+<li><p>Le caractère du texte et du motif ne correspondent pas, on décale le motif d’un caractère vers la droite.</p></li>
+</ul>
+<p>On recommence les comparaisons jusqu’à la fin du texte ou du motif tant qu’il ny a pas de correspondance. L’algorithme se termine si on trouve une correspondance ou si on arrive à la fin du texte sans correspondance.</p>
+<p>Prenons l’exemple du texte <code class="docutils literal notranslate"><span class="pre">hippoppotame</span></code> et du motif <code class="docutils literal notranslate"><span class="pre">pop</span></code> en plaçant le motif juste en dessous du texte.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/recherche_naive_1.png"><img alt="../_images/recherche_naive_1.png" src="../_images/recherche_naive_1.png" style="width: 300px;" />
+</a>
+</figure>
+<p>En appliquant l’algorithme, on obtient les différentes étapes suivantes à chaque itération.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/recherche_naive_2.png"><img alt="../_images/recherche_naive_2.png" src="../_images/recherche_naive_2.png" style="width: 600px;" />
+</a>
+</figure>
+</section>
+</section>
+
 
                 </article>
               
@@ -324,6 +355,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="exercice_1.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Exercices</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="exercice_2.html"
+       title="page suivante">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">suivant</p>
+        <p class="prev-next-title">Recherche textuelle</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -339,9 +388,9 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contenu
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recherche-naive">Recherche naïve</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

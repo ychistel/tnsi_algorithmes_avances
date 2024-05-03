@@ -18,5 +18,7 @@ Algorithmes avancés
    content/activite_grille.rst
    content/programmation_dynamique.rst
    content/exercice_1.rst
+   content/boyer_moore.rst
+   content/exercice_2.rst
    
 

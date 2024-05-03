@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>&lt;no title&gt; &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/&#34;&gt;NSI&lt;/a&gt;</title>
+    <title>Recherche textuelle &#8212; &lt;a href=&#34;https://ychistel.github.io/cours/&#34;&gt;NSI&lt;/a&gt;</title>
   
   
   
@@ -46,6 +46,7 @@
     <script src="../_static/custom.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="Algorithme de Boyer et Moore" href="boyer_moore.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="fr"/>
   </head>
@@ -107,8 +108,6 @@
       
       
       
-        
-      
       <div class="bd-sidebar-primary bd-sidebar">
         
 
@@ -148,10 +147,12 @@
  </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
+        <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="activite_grille.html">Parcourir une grille</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programmation_dynamique.html">La programmation dynamique</a></li>
 <li class="toctree-l1"><a class="reference internal" href="exercice_1.html">Exercices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boyer_moore.html">Algorithme de Boyer et Moore</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Recherche textuelle</a></li>
 </ul>
 
     </div>
@@ -290,7 +291,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1><no title></h1>
+    <h1>Recherche textuelle</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -299,9 +300,12 @@ document.write(`
                 <h2> Contenu </h2>
             </div>
             <nav aria-label="Page">
-                <ul class="simple visible nav section-nav flex-column">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -312,7 +316,61 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  
+  <section id="recherche-textuelle">
+<h1>Recherche textuelle<a class="headerlink" href="#recherche-textuelle" title="Lien vers cette rubrique">#</a></h1>
+<section id="exercice-1">
+<h2>Exercice 1<a class="headerlink" href="#exercice-1" title="Lien vers cette rubrique">#</a></h2>
+<p>Le site <a class="reference external" href="https://fr.wikisource.org/">WikiSource</a> est une bibliothèque en ligne qui propose des ouvrages libre de droit, tombé dans l’espace public.</p>
+<ol class="arabic">
+<li><p>Télécharger au format <code class="docutils literal notranslate"><span class="pre">plain</span> <span class="pre">text</span></code> et en intégralité, le roman « Vingt mille lieues sous les mers » de Jules Verne.</p></li>
+<li><p>Créer un fichier python <code class="docutils literal notranslate"><span class="pre">recherche_texte.py</span></code> contenant les lignes suivantes:</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">roman</span> <span class="o">=</span> <span class="c1"># fichier du roman téléchargé</span>
+<span class="n">fichier</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">roman</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">,</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">texte</span> <span class="o">=</span> <span class="n">fichier</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="n">fichier</span><span class="o">.</span><span class="n">close</span>
+</pre></div>
+</div>
+</li>
+<li><p>Vérifier que la variable <code class="docutils literal notranslate"><span class="pre">texte</span></code> n’est pas vide.</p></li>
+<li><p>Rechercher, avec la méthode <code class="docutils literal notranslate"><span class="pre">find</span></code>, la présence de la chaine de caractères <code class="docutils literal notranslate"><span class="pre">Mobile</span> <span class="pre">dans</span> <span class="pre">l’élément</span> <span class="pre">mobile</span> <span class="pre">!</span></code>. Afficher sur une centaine de caratères un extrait du texte contenant ce motif.</p></li>
+<li><p>Le capitaine Nemo est un personnage célèbre des romans de Jules Verne. Est-il présent dans cet ouvrage ?</p></li>
+</ol>
+</section>
+<section id="exercice-2">
+<h2>Exercice 2<a class="headerlink" href="#exercice-2" title="Lien vers cette rubrique">#</a></h2>
+<p>La méthode <code class="docutils literal notranslate"><span class="pre">find</span></code> peut prendre 2 arguments lors d’un appel. Le premier est le <code class="docutils literal notranslate"><span class="pre">motif</span></code> recherché dans le texte et le second argument est l’indice où commence la recherche dans le texte.</p>
+<p>On rappelle que la méthode <code class="docutils literal notranslate"><span class="pre">find</span></code>:</p>
+<ul class="simple">
+<li><p>renvoie l’indice du premier caractère du motif dans le texte s’il est présent.</p></li>
+<li><p>renvoie <code class="docutils literal notranslate"><span class="pre">-1</span></code> si le motif n’est pas présent dans le texte.</p></li>
+</ul>
+<p>Écrire un fonction <code class="docutils literal notranslate"><span class="pre">nombre_occurence(texte,motif)</span></code> qui prend en paramètre un texte et un motif et renvoie le nombre d’occurences du motif dans le texte.</p>
+</section>
+<section id="exercice-3">
+<h2>Exercice 3<a class="headerlink" href="#exercice-3" title="Lien vers cette rubrique">#</a></h2>
+<p>On propose d’écrire en Python la recherche naïve d’un motif dans un texte. On utilisera 2 fonctions pour le réaliser:</p>
+<ol class="arabic">
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">correspondance(texte,motif,i)</span></code> prend en paramètre un texte, un motif et un nombre entier <code class="docutils literal notranslate"><span class="pre">i</span></code> désignant l’indice de la position du motif dans le texte.</p>
+<p>La fontion renvoie un booléen qui vaut <code class="docutils literal notranslate"><span class="pre">True</span></code> si on a une correspondance entre le motif et le texte dans la fenêtre de recherche et <code class="docutils literal notranslate"><span class="pre">False</span></code> dans le cas contraire.</p>
+</li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">recherche(texte,motif)</span></code> parcourt la chaine <code class="docutils literal notranslate"><span class="pre">texte</span></code> en vérifiant s’il y a une correpondance avec <code class="docutils literal notranslate"><span class="pre">motif</span></code>.
+-   S’il y a une correspondance, elle renvoie l’indice où se trouve le motif dans la chaine texte.
+-   Dans le cas contraire, elle décale la fenêtre de recherche et cherche une nouvelle correspondance. Si la chaine <code class="docutils literal notranslate"><span class="pre">texte</span></code> est entièrement parcourue sans avoir de correspondance, la fonction renvoie <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+<li><p>Vérifier votre recherche avec le texte <code class="docutils literal notranslate"><span class="pre">hippoppotame</span></code> et les motifs <code class="docutils literal notranslate"><span class="pre">pop</span></code>, <code class="docutils literal notranslate"><span class="pre">pot</span></code> et <code class="docutils literal notranslate"><span class="pre">top</span></code>.</p></li>
+<li><p>Reprendre l’exercice 1 et faire les recherches textuelles réalisées avec la m »thode <code class="docutils literal notranslate"><span class="pre">find</span></code>.</p></li>
+</ol>
+</section>
+<section id="exercice-4">
+<h2>Exercice 4<a class="headerlink" href="#exercice-4" title="Lien vers cette rubrique">#</a></h2>
+<ol class="arabic simple">
+<li><p>On recherche le motif <code class="docutils literal notranslate"><span class="pre">aab</span></code> dans le texte <code class="docutils literal notranslate"><span class="pre">aaaa</span></code>. Combien de comparaisons de caractères sont nécessaires pour vérifier la présence du motif dans le texte ?</p></li>
+<li><p>Même question avec le motif <code class="docutils literal notranslate"><span class="pre">aab</span></code> dans le texte <code class="docutils literal notranslate"><span class="pre">aaaaaaa</span></code>.</p></li>
+<li><p>Généraliser les observations précédentes avec un motif de longueur <code class="docutils literal notranslate"><span class="pre">p</span></code> et un texte de longueur <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>En déduire la complexité de l’algorithme naïf de recherche textuelle.</p></li>
+</ol>
+</section>
+</section>
+
 
                 </article>
               
@@ -324,6 +382,15 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="boyer_moore.html"
+       title="page précédente">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">précédent</p>
+        <p class="prev-next-title">Algorithme de Boyer et Moore</p>
+      </div>
+    </a>
 </div>
                 </footer>
               
@@ -339,9 +406,12 @@ document.write(`
     <i class="fa-solid fa-list"></i> Contenu
   </div>
   <nav class="bd-toc-nav page-toc">
-    <ul class="simple visible nav section-nav flex-column">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-1">Exercice 1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-2">Exercice 2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-3">Exercice 3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercice-4">Exercice 4</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>
