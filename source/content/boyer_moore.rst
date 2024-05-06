@@ -9,6 +9,10 @@ Le langage Python propose la méthode ``find`` qui s'applique sur les chaines de
     >>> texte.find('mot')
     3
 
+.. note::
+
+    Vous pouvez chercher les exercices 1 et 2.
+
 Recherche naïve
 ----------------
 
@@ -31,3 +35,27 @@ En appliquant l'algorithme, on obtient les différentes étapes suivantes à cha
     :align: center
     :width: 600
 
+.. note::
+
+    Vous pouvez chercher les exercices 3 et 4.
+
+
+Algorithme de Boyer-Moore
+--------------------------
+
+L'algorithme présenté est une version simplifiée de l'algorithme de Boyer et Moore inventée par Nigel Horspool.
+
+L'algorithme repose sur 2 idées principales:
+
+-   On compare le motif avec le texte en se commençant par la fin du motif, c'est à dire de droite à gauche et non de gauche à droite comme pour l'algorithme naïf. 
+-   Lorsqu'il n'y a pas de correspondance entre le caractère du motif et le caractère aligné du texte, deux cas se présentent:
+
+    **cas 1**:  le caractère du texte n'est pas dans le motif, alors on décale le motif de toute sa longueur;
+
+    **cas 2**:  le caractère du texte est présent dans le motif, alors on décale le motif de 1 caractère à droite.
+
+En pratiquant ainsi, on peut éviter de nombreuses comparaisons. Voyons comment se déroule l'algorithme à travers un exemple.
+
+.. figure:: ../img/recherche_horspool_2.png
+    :align: center
+    :width: 600
