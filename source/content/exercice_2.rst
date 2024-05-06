@@ -76,3 +76,12 @@ Exercice 5
 
 #.  Le dernier cas de la question précédente provoque une erreur. Quelle condition faut-il vérifier pour l'éviter ?
 
+Exercice 6
+-----------
+
+Dans l'algorithme BMH, lorsqu'un caractère ``c`` du texte ne correspond pas avec le caractère du motif, on vérifie si ce caractère ``c`` est présent dans le motif. 
+
+Pour effectuer cette vérification, on construit un dictionnaire dont les clés sont les caractères du motif et les valeurs les indices de position du caractère le plus à droite dans le motif.
+
+#.  Quel est le dictionnaire associé au motif ``abbac`` ?
+#.  Écrire une fonction qui renvoie ce dictionnaire en prenant en paramètre un motif.
