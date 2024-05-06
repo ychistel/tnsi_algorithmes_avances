@@ -52,7 +52,7 @@ L'algorithme repose sur 2 idées principales:
 
     **cas 1**:  le caractère du texte n'est pas dans le motif, alors on décale le motif de toute sa longueur;
 
-    **cas 2**:  le caractère du texte est présent dans le motif, alors on décale le motif de 1 caractère à droite.
+    **cas 2**:  le caractère du texte est présent dans le motif, alors on décale le motif de façon à aligner le caractère du texte avec la première occurence du caractère du motif en partant de la droite.
 
 En pratiquant ainsi, on peut éviter de nombreuses comparaisons. Voyons comment se déroule l'algorithme à travers un exemple.
 

@@ -359,7 +359,7 @@ document.write(`
 <li><p>On compare le motif avec le texte en se commençant par la fin du motif, c’est à dire de droite à gauche et non de gauche à droite comme pour l’algorithme naïf.</p></li>
 <li><p>Lorsqu’il n’y a pas de correspondance entre le caractère du motif et le caractère aligné du texte, deux cas se présentent:</p>
 <p><strong>cas 1</strong>:  le caractère du texte n’est pas dans le motif, alors on décale le motif de toute sa longueur;</p>
-<p><strong>cas 2</strong>:  le caractère du texte est présent dans le motif, alors on décale le motif de 1 caractère à droite.</p>
+<p><strong>cas 2</strong>:  le caractère du texte est présent dans le motif, alors on décale le motif de façon à aligner le caractère du texte avec la première occurence du caractère du motif en partant de la droite.</p>
 </li>
 </ul>
 <p>En pratiquant ainsi, on peut éviter de nombreuses comparaisons. Voyons comment se déroule l’algorithme à travers un exemple.</p>
