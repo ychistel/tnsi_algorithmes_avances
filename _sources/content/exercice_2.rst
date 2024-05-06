@@ -33,6 +33,10 @@ On rappelle que la méthode ``find``:
 
 Écrire un fonction ``nombre_occurence(texte,motif)`` qui prend en paramètre un texte et un motif et renvoie le nombre d'occurences du motif dans le texte. 
 
+.. note::
+
+    Reprendre la lecture du cours avant de poursuivre.
+
 Exercice 3
 -----------
 
@@ -56,3 +60,19 @@ Exercice 4
 #.  Même question avec le motif ``aab`` dans le texte ``aaaaaaa``.
 #.  Généraliser les observations précédentes avec un motif de longueur ``p`` et un texte de longueur ``n``.
 #.  En déduire la complexité de l'algorithme naïf de recherche textuelle.
+
+.. note::
+
+    Reprendre la lecture du cours avant de poursuivre.
+
+Exercice 5
+-----------
+
+#.  Donner les différentes étapes de la recherche par l'algorithme de Boyer-Moore-Horspool dans les cas suivants:
+
+    a.  le texte est ``programme`` et le motif est ``ram``.
+    b.  le texte est ``informatique`` et le motif est ``mat``.
+    c.  le texte est ``numerique`` et le motif est ``ric``.
+
+#.  Le dernier cas de la question précédente provoque une erreur. Quelle condition faut-il vérifier pour l'éviter ?
+

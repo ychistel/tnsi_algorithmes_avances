@@ -303,6 +303,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recherche-naive">Recherche naïve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-boyer-moore">Algorithme de Boyer-Moore</a></li>
 </ul>
             </nav>
         </div>
@@ -323,6 +324,10 @@ document.write(`
 <span class="go">3</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez chercher les exercices 1 et 2.</p>
+</div>
 <section id="recherche-naive">
 <h2>Recherche naïve<a class="headerlink" href="#recherche-naive" title="Lien vers cette rubrique">#</a></h2>
 <p>L’algorithme naïf consiste à comparer un à un, de gauche à droite, les caractères du texte avec ceux du motif. Deux cas sont à envisager:</p>
@@ -339,6 +344,27 @@ document.write(`
 <p>En appliquant l’algorithme, on obtient les différentes étapes suivantes à chaque itération.</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="../_images/recherche_naive_2.png"><img alt="../_images/recherche_naive_2.png" src="../_images/recherche_naive_2.png" style="width: 600px;" />
+</a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Vous pouvez chercher les exercices 3 et 4.</p>
+</div>
+</section>
+<section id="algorithme-de-boyer-moore">
+<h2>Algorithme de Boyer-Moore<a class="headerlink" href="#algorithme-de-boyer-moore" title="Lien vers cette rubrique">#</a></h2>
+<p>L’algorithme présenté est une version simplifiée de l’algorithme de Boyer et Moore inventée par Nigel Horspool.</p>
+<p>L’algorithme repose sur 2 idées principales:</p>
+<ul>
+<li><p>On compare le motif avec le texte en se commençant par la fin du motif, c’est à dire de droite à gauche et non de gauche à droite comme pour l’algorithme naïf.</p></li>
+<li><p>Lorsqu’il n’y a pas de correspondance entre le caractère du motif et le caractère aligné du texte, deux cas se présentent:</p>
+<p><strong>cas 1</strong>:  le caractère du texte n’est pas dans le motif, alors on décale le motif de toute sa longueur;</p>
+<p><strong>cas 2</strong>:  le caractère du texte est présent dans le motif, alors on décale le motif de 1 caractère à droite.</p>
+</li>
+</ul>
+<p>En pratiquant ainsi, on peut éviter de nombreuses comparaisons. Voyons comment se déroule l’algorithme à travers un exemple.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/recherche_horspool_2.png"><img alt="../_images/recherche_horspool_2.png" src="../_images/recherche_horspool_2.png" style="width: 600px;" />
 </a>
 </figure>
 </section>
@@ -390,6 +416,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recherche-naive">Recherche naïve</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#algorithme-de-boyer-moore">Algorithme de Boyer-Moore</a></li>
 </ul>
   </nav></div>
 
