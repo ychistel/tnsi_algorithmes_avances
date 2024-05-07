@@ -359,9 +359,12 @@ document.write(`
 <li><p>La fonction <code class="docutils literal notranslate"><span class="pre">correspondance(texte,motif,i)</span></code> prend en paramètre un texte, un motif et un nombre entier <code class="docutils literal notranslate"><span class="pre">i</span></code> désignant l’indice de la position du motif dans le texte.</p>
 <p>La fontion renvoie un booléen qui vaut <code class="docutils literal notranslate"><span class="pre">True</span></code> si on a une correspondance entre le motif et le texte dans la fenêtre de recherche et <code class="docutils literal notranslate"><span class="pre">False</span></code> dans le cas contraire.</p>
 </li>
-<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">recherche(texte,motif)</span></code> parcourt la chaine <code class="docutils literal notranslate"><span class="pre">texte</span></code> en vérifiant s’il y a une correpondance avec <code class="docutils literal notranslate"><span class="pre">motif</span></code>.
--   S’il y a une correspondance, elle renvoie l’indice où se trouve le motif dans la chaine texte.
--   Dans le cas contraire, elle décale la fenêtre de recherche et cherche une nouvelle correspondance. Si la chaine <code class="docutils literal notranslate"><span class="pre">texte</span></code> est entièrement parcourue sans avoir de correspondance, la fonction renvoie <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+<li><p>La fonction <code class="docutils literal notranslate"><span class="pre">recherche(texte,motif)</span></code> parcourt la chaine <code class="docutils literal notranslate"><span class="pre">texte</span></code> en vérifiant s’il y a une correspondance avec <code class="docutils literal notranslate"><span class="pre">motif</span></code>.</p>
+<ul class="simple">
+<li><p>S’il y a une correspondance, elle renvoie l’indice où se trouve le motif dans la chaine texte.</p></li>
+<li><p>Dans le cas contraire, elle décale la fenêtre de recherche et cherche une nouvelle correspondance. Si la chaine <code class="docutils literal notranslate"><span class="pre">texte</span></code> est entièrement parcourue sans avoir de        correspondance, la fonction renvoie <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+</ul>
+</li>
 <li><p>Vérifier votre recherche avec le texte <code class="docutils literal notranslate"><span class="pre">hippoppotame</span></code> et les motifs <code class="docutils literal notranslate"><span class="pre">pop</span></code>, <code class="docutils literal notranslate"><span class="pre">pot</span></code> et <code class="docutils literal notranslate"><span class="pre">top</span></code>.</p></li>
 <li><p>Reprendre l’exercice 1 et faire les recherches textuelles réalisées avec la méthode <code class="docutils literal notranslate"><span class="pre">find</span></code>.</p></li>
 </ol>
