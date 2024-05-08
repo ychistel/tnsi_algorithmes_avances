@@ -1,5 +1,5 @@
-Recherche textuelle
-===================
+Exercices
+==========
 
 Exercice 1
 ----------
@@ -46,12 +46,13 @@ On propose d'écrire en Python la recherche naïve d'un motif dans un texte. On 
 
     La fontion renvoie un booléen qui vaut ``True`` si on a une correspondance entre le motif et le texte dans la fenêtre de recherche et ``False`` dans le cas contraire.
 
-#.  La fonction ``recherche(texte,motif)`` parcourt la chaine ``texte`` en vérifiant s'il y a une correpondance avec ``motif``.
+#.  La fonction ``recherche(texte,motif)`` parcourt la chaine ``texte`` en vérifiant s'il y a une correspondance avec ``motif``.
+
     -   S'il y a une correspondance, elle renvoie l'indice où se trouve le motif dans la chaine texte.
-    -   Dans le cas contraire, elle décale la fenêtre de recherche et cherche une nouvelle correspondance. Si la chaine ``texte`` est entièrement parcourue sans avoir de correspondance, la fonction renvoie ``-1``.
+    -   Dans le cas contraire, elle décale la fenêtre de recherche et cherche une nouvelle correspondance. Si la chaine ``texte`` est entièrement parcourue sans avoir de        correspondance, la fonction renvoie ``-1``.
 
 #.  Vérifier votre recherche avec le texte ``hippoppotame`` et les motifs ``pop``, ``pot`` et ``top``.
-#.  Reprendre l'exercice 1 et faire les recherches textuelles réalisées avec la m"thode ``find``.
+#.  Reprendre l'exercice 1 et faire les recherches textuelles réalisées avec la méthode ``find``.
 
 Exercice 4
 -----------

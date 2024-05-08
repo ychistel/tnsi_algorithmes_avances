@@ -49,7 +49,7 @@ L'algorithme présenté est une version simplifiée de l'algorithme de Boyer et 
     
 L'algorithme repose sur 2 idées principales:
 
--   On compare le motif avec le texte en se commençant par la fin du motif, c'est à dire de droite à gauche et non de gauche à droite comme pour l'algorithme naïf. 
+-   On compare le motif avec le texte en commençant par la fin du motif, c'est à dire de droite à gauche et non de gauche à droite comme pour l'algorithme naïf. 
 -   Lorsqu'il n'y a pas de correspondance entre le caractère du motif et le caractère aligné du texte, deux cas se présentent:
 
     **cas 1**:  le caractère du texte n'est pas dans le motif, alors on décale le motif juste après le caractère du texte qui n'est pas égal au caractère du motif.
@@ -61,6 +61,7 @@ En pratiquant ainsi, on peut éviter de nombreuses comparaisons. Voyons comment 
 .. figure:: ../img/recherche_horspool_2.png
     :align: center
     :width: 600
+
 
 .. rubric:: Calculer le décalage
 
