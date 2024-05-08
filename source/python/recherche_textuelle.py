@@ -6,7 +6,7 @@ fichier.close
 def nombre_occurrence(texte,motif):
     compteur = 0
     i = 0
-    while True:
+    while i < len(texte):
         occurrence = texte.find(motif,i)
         if occurrence == -1:
             return compteur
