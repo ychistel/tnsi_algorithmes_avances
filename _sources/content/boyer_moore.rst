@@ -45,12 +45,14 @@ Algorithme de Boyer-Moore
 
 L'algorithme présenté est une version simplifiée de l'algorithme de Boyer et Moore inventée par Nigel Horspool.
 
+.. rubric:: L'algorithme
+    
 L'algorithme repose sur 2 idées principales:
 
 -   On compare le motif avec le texte en commençant par la fin du motif, c'est à dire de droite à gauche et non de gauche à droite comme pour l'algorithme naïf. 
 -   Lorsqu'il n'y a pas de correspondance entre le caractère du motif et le caractère aligné du texte, deux cas se présentent:
 
-    **cas 1**:  le caractère du texte n'est pas dans le motif, alors on décale le motif de toute sa longueur;
+    **cas 1**:  le caractère du texte n'est pas dans le motif, alors on décale le motif juste après le caractère du texte qui n'est pas égal au caractère du motif.
 
     **cas 2**:  le caractère du texte est présent dans le motif, alors on décale le motif de façon à aligner le caractère du texte avec la première occurence du caractère du motif en partant de la droite.
 
@@ -59,3 +61,36 @@ En pratiquant ainsi, on peut éviter de nombreuses comparaisons. Voyons comment 
 .. figure:: ../img/recherche_horspool_2.png
     :align: center
     :width: 600
+
+
+.. rubric:: Calculer le décalage
+
+Contrairement à l'algorithme de recherche naïve pour lequel le décalage de la fenêtre de recherche est toujours égal à 1 caractère vers la droite, le décalage de la fenêtre de recherche dans l'algorithme de Boyer-Moore-Horspool se calcule lorsque le caractère du motif et le caractère aligné du texte sont différents.
+
+On note ``j`` l'indice de position du caractère du motif.
+
+-   Si on est dans le cas 1, le caractère du texte n'est pas dans le motif, alors le décalage de la fenêtre de recherche est ``d = j + 1``.
+
+    Donnons un exemple de calcul de ce décalage:
+
+    .. figure:: ../img/decalage_1.png
+        :align: center
+        :width: 520
+
+-   Si on est dans le cas 2, le caractère du texte est présent dans le motif, alors on calcule la valeur ``j - r`` où ``r`` est l'indice de position du caractère le plus à droite dans le motif. 
+
+    Si ``j - r`` est strictement positif, alors le décalage est ``d = j - r`` sinon le décalage est ``d = 1``.
+
+    Donnons 1 autre exemple de calcul de décalage dans les 2 cas possibles:
+
+    .. figure:: ../img/decalage_2.png
+        :align: center
+        :width: 520
+        
+        La différence ``j-r`` est positive
+
+    .. figure:: ../img/decalage_3.png
+        :align: center
+        :width: 520
+        
+        La différence ``j-r`` est négative

@@ -354,11 +354,12 @@ document.write(`
 <section id="algorithme-de-boyer-moore">
 <h2>Algorithme de Boyer-Moore<a class="headerlink" href="#algorithme-de-boyer-moore" title="Lien vers cette rubrique">#</a></h2>
 <p>L’algorithme présenté est une version simplifiée de l’algorithme de Boyer et Moore inventée par Nigel Horspool.</p>
+<p class="rubric">L’algorithme</p>
 <p>L’algorithme repose sur 2 idées principales:</p>
 <ul>
 <li><p>On compare le motif avec le texte en commençant par la fin du motif, c’est à dire de droite à gauche et non de gauche à droite comme pour l’algorithme naïf.</p></li>
 <li><p>Lorsqu’il n’y a pas de correspondance entre le caractère du motif et le caractère aligné du texte, deux cas se présentent:</p>
-<p><strong>cas 1</strong>:  le caractère du texte n’est pas dans le motif, alors on décale le motif de toute sa longueur;</p>
+<p><strong>cas 1</strong>:  le caractère du texte n’est pas dans le motif, alors on décale le motif juste après le caractère du texte qui n’est pas égal au caractère du motif.</p>
 <p><strong>cas 2</strong>:  le caractère du texte est présent dans le motif, alors on décale le motif de façon à aligner le caractère du texte avec la première occurence du caractère du motif en partant de la droite.</p>
 </li>
 </ul>
@@ -367,6 +368,36 @@ document.write(`
 <a class="reference internal image-reference" href="../_images/recherche_horspool_2.png"><img alt="../_images/recherche_horspool_2.png" src="../_images/recherche_horspool_2.png" style="width: 600px;" />
 </a>
 </figure>
+<p class="rubric">Calculer le décalage</p>
+<p>Contrairement à l’algorithme de recherche naïve pour lequel le décalage de la fenêtre de recherche est toujours égal à 1 caractère vers la droite, le décalage de la fenêtre de recherche dans l’algorithme de Boyer-Moore-Horspool se calcule lorsque le caractère du motif et le caractère aligné du texte sont différents.</p>
+<p>On note <code class="docutils literal notranslate"><span class="pre">j</span></code> l’indice de position du caractère du motif.</p>
+<ul>
+<li><p>Si on est dans le cas 1, le caractère du texte n’est pas dans le motif, alors le décalage de la fenêtre de recherche est <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">j</span> <span class="pre">+</span> <span class="pre">1</span></code>.</p>
+<p>Donnons un exemple de calcul de ce décalage:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/decalage_1.png"><img alt="../_images/decalage_1.png" src="../_images/decalage_1.png" style="width: 520px;" />
+</a>
+</figure>
+</li>
+<li><p>Si on est dans le cas 2, le caractère du texte est présent dans le motif, alors on calcule la valeur <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">-</span> <span class="pre">r</span></code> où <code class="docutils literal notranslate"><span class="pre">r</span></code> est l’indice de position du caractère le plus à droite dans le motif.</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">-</span> <span class="pre">r</span></code> est strictement positif, alors le décalage est <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">j</span> <span class="pre">-</span> <span class="pre">r</span></code> sinon le décalage est <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">1</span></code>.</p>
+<p>Donnons 1 autre exemple de calcul de décalage dans les 2 cas possibles:</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/decalage_2.png"><img alt="../_images/decalage_2.png" src="../_images/decalage_2.png" style="width: 520px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">La différence <code class="docutils literal notranslate"><span class="pre">j-r</span></code> est positive</span><a class="headerlink" href="#id1" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/decalage_3.png"><img alt="../_images/decalage_3.png" src="../_images/decalage_3.png" style="width: 520px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">La différence <code class="docutils literal notranslate"><span class="pre">j-r</span></code> est négative</span><a class="headerlink" href="#id2" title="Lien vers cette image">#</a></p>
+</figcaption>
+</figure>
+</li>
+</ul>
 </section>
 </section>
 
