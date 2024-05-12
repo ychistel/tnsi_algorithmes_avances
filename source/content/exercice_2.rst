@@ -86,3 +86,25 @@ Pour effectuer cette vérification, on construit un dictionnaire dont les clés 
 
 #.  Quel est le dictionnaire associé au motif ``abbac`` ?
 #.  Écrire une fonction qui renvoie ce dictionnaire en prenant en paramètre un motif.
+
+Exercice 7
+-----------
+
+On propose d'écrire en Python l'algorithme de Boyer et Moore pour vérifier la présence d'un motif dans un texte. Selon les correspondances entre les caractères du motif et ceux du texte, on effectue différents décalages du motif. 
+
+#.  Écrire la fonction ``decalage`` qui prend en paramètres :
+
+    -   ``texte`` qui contient la chaine de caractères dans laquelle on recherche un motif;
+    -   ``motif`` qui contient la chaine de caractères contenant le motif à chercher;
+    -   ``dico`` qui contient le dictionnaire associé au motif dont les valeurs sont les indices de position des caractères du motif les plus à droite;
+    -   ``i`` un nombre entier qui aligne le caractère d'indice ``i`` avec le premier caractère du moitf.
+
+    La fonction parcourt le motif, caractère par caractère, et vérifie la correspondance avec le texte aligné. Elle renvoie le décalage du motif. S'il y a correspondance, la fonction renvoie ``0``.
+
+    .. warning::
+
+        La recherche avec l'algorithme de Boyer et Moore commence avec le dernier caractère du motif.
+
+#.  Écrire la fonction ``bmh`` qui prend en paramètres ``texte`` et ``motif`` qui sont deux chaines de caractères et qui renvoie l'indice de position du motif présent dans le texte. S'il n'y a pas de carrespondance, la fonction renvoie -1.
+
+#.  Effectuer la recherche du motif ``Mobile dans l'élément mobile`` dans le texte du roman de Jules Vernes ``Vingt mille lieues sous les mers``. Ajouter un compteur pour comparer l'efficacité de l'algorithme avec l'algorithme de recherche naïve.
