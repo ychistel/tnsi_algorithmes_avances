@@ -13,7 +13,7 @@
 import os
 import sys
 # sys.path.insert(0, os.path.abspath('.'))
-#sys.path.insert(0, os.path.abspath('/sphinx_exercices'))
+sys.path.append(os.path.abspath('./_extensions'))
 
 
 # -- Project information -----------------------------------------------------
@@ -29,7 +29,7 @@ copyright = annee + ',' + author
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = []
+extensions = ['numbered_title']
 
 # panels_add_bootstrap_css = True
 # panels_delimiters = (r"^\-{3,}$", r"^\^{3,}$", r"^\+{3,}$")
